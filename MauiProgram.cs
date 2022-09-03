@@ -24,12 +24,12 @@ public static class MauiProgram
         //Views Registration
         builder.Services.AddSingleton<StudentListPage>();
         builder.Services.AddTransient<AddUpdateStudentDetail>();
-
+        builder.Services.AddTransient<StudentDetailsPage>();
 
         //View Modles 
         builder.Services.AddSingleton<StudentListPageViewModel>();
         builder.Services.AddTransient<AddUpdateStudentDetailViewModel>();
-
+        builder.Services.AddTransient<StudentDetailsViewModel>();
 
         return builder.Build();
     }

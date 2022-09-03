@@ -1,0 +1,11 @@
+﻿global using Microsoft.Toolkit.Mvvm.ComponentModel;
+global using Microsoft.Toolkit.Mvvm.Input;
+global using System.Collections.ObjectModel;
+global using SQLiteDemo.Models;
+global using SQLiteDemo.Services;
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using SQLiteDemo.Views;

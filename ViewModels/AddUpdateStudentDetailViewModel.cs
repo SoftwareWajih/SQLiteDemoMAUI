@@ -1,14 +1,4 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
-using SQLiteDemo.Models;
-using SQLiteDemo.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SQLiteDemo.ViewModels
+﻿namespace SQLiteDemo.ViewModels
 {
     [QueryProperty(nameof(StudentDetail), "StudentDetail")]
     public partial class AddUpdateStudentDetailViewModel : ObservableObject
@@ -25,6 +15,20 @@ namespace SQLiteDemo.ViewModels
         [ICommand]
         public async void AddUpdateStudent()
         {
+            if (!string.IsNullOrWhiteSpace(StudentDetail.FirstName) && !string.IsNullOrWhiteSpace(StudentDetail.LastName) && !string.IsNullOrWhiteSpace(StudentDetail.Email))
+            {
+                AddUpdateStudentDetails();
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Warning!", "Please Enter Required Fields", "OK");
+            }
+            
+            
+        }
+
+        public async void AddUpdateStudentDetails()
+        {
             int response = -1;
             if (StudentDetail.StudentID > 0)
             {
@@ -40,7 +44,7 @@ namespace SQLiteDemo.ViewModels
                 });
             }
 
-        
+
 
             if (response > 0)
             {
